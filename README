@@ -1,0 +1,35 @@
+INSTALLATION ----Instructions are for a MAC OSX/linux Python3 environment------------------
+It is highly recommended to run these scripts within a virtual environment in your machine
+and not within your system. It is best not to disrupt current packages, libraries that some
+programs may be using currently within your machine. 
+
+Note: If you are using Python2 or Windows, the following instructions may not be accurate. 
+Refer to for support:
+	 https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/
+
+1. Installing Virtual Environment 
+	python3 -m pip install --user venv 		# Install virtual environment 
+	mkdir "folder_name" 					# Create folder in desired location 
+	python3 -m venv "folder_name"			# Create virtual environment
+	source ./"folder_name"/bin/activate		# Activate virtual environment 
+
+2. Install Following packages within your Virtual Environment 
+	pip install pandas						# Manipulate data coming from API
+	pip install alpha_vantage				# API to return real time stock data
+	pip install matplotlib					# Library to plot data
+	pip install openpyxl					# R/W excel files from python
+	pip install twilio>=6.0.0				# instalL twilio packages for receiving text notification
+	
+	
+3. Get API stock data from AlphaVantage (All scripts will need this)
+		All scripts within this branch will need to get a API_key from 
+   		https://www.alphavantage.co/support/#api-key 
+	 	which allows you to read and manipulate real time stock data through python. 
+		Sign up and you will receive your own API Key
+
+ 
+4. Receive notification messages instantly on your phone (Used only if running alert-stockPrice-SMALine.py)
+ 		You will need to sign up for a Twilio account if you are running "alert-stockPrice-SMALine.py" 
+ 		https://www.twilio.com/try-twilio
+		You should receive a Twilio Account SID, Auth Token and a Twilio number
+		Copy these values in the appropriate lines
