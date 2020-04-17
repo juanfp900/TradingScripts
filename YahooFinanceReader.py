@@ -1,22 +1,7 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Apr 16 15:39:42 2020
-
-@author: Juanp
-"""
-
-# ============================================================================
-# Import OHLCV data using yahoofinancials
-# Author - Mayank Rasu
-# =============================================================================
-
-
 import pandas as pd
 from yahoofinancials import YahooFinancials
 import datetime
 
-#all_tickers = ["AAPL","MSFT","CSCO","AMZN","INTC"]
 all_tickers = ["AAPL", "MSFT", "AMZN"]
 
 # extracting stock data (historical close price) for the stocks identified
@@ -42,7 +27,7 @@ while len(cp_tickers) != 0 and attempt <=5:
             temp = pd.DataFrame(ohlv)[["formatted_date","adjclose"]]
             print(temp)
             temp.set_index("formatted_date",inplace=True)
-            temp2 = temp[~temp.index.duplicated(keep='first')] #Keeps only the first instance of duplicated value Keeping all rows that are not duplicates
+            temp2 = temp[~temp.index.duplicated(keep='first')] #Keeps only the first instance of duplicated values.
             close_prices[cp_tickers[i]] = temp2["adjclose"]
             drop.append(cp_tickers[i]) 
             print(temp2)
